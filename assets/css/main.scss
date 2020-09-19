@@ -1,0 +1,27 @@
+$font-code: 'Monaco', 'Menlo', monospace;
+$font-text: 'Helvetica', sans-serif;
+
+$color-text: #394548;
+$color-link-hover: #369aff;
+$color-grey: #bbb;
+$color-light-grey: #eee;
+$color-dark-grey: #aaa;
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: $font-text;
+    color: $color-text;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
