@@ -2,19 +2,20 @@
 <html>
 
     <head>
+	<meta name="generator" content="Hugo 0.75.1" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Enfield Schools map">
 
-        {{ $style := resources.Get "css/main.scss" | resources.ToCSS | resources.Minify }}
-        <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+        
+        <link rel="stylesheet" href="/css/main.min.css">
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWY_7rm_aIynu5Er5ajJr3w6hLyBAa6cE&callback=initMap&libraries=&v=weekly" defer ></script>
 
-        {{ $opts := dict "targetPath" "main.js" "format" "cjs" }}
-        {{ $built := resources.Get "typescript/index.tsx" | js.Build $opts }}
-        <script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
+        
+        
+        <script type="text/javascript" src="/main.js"></script>
 
         <title>Enfield schools</title>
     </head>

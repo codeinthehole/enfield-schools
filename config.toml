@@ -1,3 +1,7 @@
-baseURL = "http://example.org/"
+baseURL = "http://codeinthehole.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+
+# Publish to docs so we can use Github pages
+publishDir = "docs"
+
+
