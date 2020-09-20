@@ -1,27 +1,13 @@
-$font-code: 'Monaco', 'Menlo', monospace;
-$font-text: 'Helvetica', sans-serif;
-
-$color-text: #394548;
-$color-link-hover: #369aff;
-$color-grey: #bbb;
-$color-light-grey: #eee;
-$color-dark-grey: #aaa;
-
-*, *:before, *:after {
-    box-sizing: border-box;
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
 }
 
-html {
-    font-size: 62.5%;
-}
-
+/* Optional: Makes the sample page fill the window. */
+html,
 body {
-    font-size: 1.6rem;
-    font-family: $font-text;
-    color: $color-text;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 16px;
-    line-height: 1.6;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-

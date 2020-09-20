@@ -1,1 +1,1 @@
-*,*:before,*:after{box-sizing:border-box}html{font-size:62.5%}body{font-size:1.6rem;font-family:helvetica,sans-serif;color:#394548;width:100%;margin:0 auto;padding:0 16px;line-height:1.6}
+#map{height:100%}html,body{height:100%;margin:0;padding:0}
