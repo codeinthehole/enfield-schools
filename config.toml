@@ -1,4 +1,4 @@
-baseURL = "http://codeinthehole.com/"
+baseURL = "http://codeinthehole.com/enfield-schools/"
 languageCode = "en-us"
 
 # Publish to docs so we can use Github pages
