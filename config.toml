@@ -1,7 +1,11 @@
 baseURL = "http://codeinthehole.com/enfield-schools/"
 languageCode = "en-us"
 
+# We don't need categories and tags.
+disableKinds = ["taxonomy", "taxonomyTerm", "sitemap", "RSS"]
+
 # Publish to docs so we can use Github pages
 publishDir = "docs"
+
 
 

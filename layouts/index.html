@@ -12,8 +12,8 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWY_7rm_aIynu5Er5ajJr3w6hLyBAa6cE&callback=initMap&libraries=&v=weekly" defer ></script>
 
-        {{ $opts := dict "targetPath" "main.js" "format" "cjs" }}
-        {{ $built := resources.Get "typescript/index.tsx" | js.Build $opts }}
+        {{ $opts := dict "targetPath" "js/main.js" "format" "cjs" }}
+        {{ $built := resources.Get "typescript/index.tsx" | js.Build $opts | resources.Minify }}
         <script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
 
         <title>Enfield schools</title>
