@@ -1,43 +1,61 @@
+interface RadiusHistory {
+    2020: float;
+}
+
 interface School {
   center: google.maps.LatLngLiteral;
   name: string;
-  radius_in_miles: float;
+  radius_in_miles: RadiusHistory;
 }
 
 const schools: Record<string, School> = {
   edmonton_county: {
     center: { lat: 51.63528, lng: -0.06758 },
     name: "Edmonton County",
-    radius_in_miles: 1.145
+    radius_in_miles: {
+        2020: 1.145
+    }
   },
   kingsmead: {
     center: { lat: 51.65137, lng: -0.06122 },
     name: "Kingsmead",
-    radius_in_miles: 0.916
+    radius_in_miles: {
+        2020: 0.916
+    }
   },
   winchmore: {
     center: { lat: 51.62921, lng: -0.09142 },
     name: "Winchmore",
-    radius_in_miles: 0.836
+    radius_in_miles: {
+        2020: 0.836
+    }
   },
   highlands: {
     center: { lat: 51.64872, lng: -0.10816 },
     name: "Highlands",
-    radius_in_miles: 0.843
+    radius_in_miles: {
+        2020: 0.843
+    }
   },
   ashmole: {
     center: { lat: 51.63269, lng: -0.13618 },
     name: "Ashmole",
-    radius_in_miles: 0.4
+    radius_in_miles: {
+        2020: 0.4
+    }
   },
   southgate: {
     center: { lat: 51.64694, lng: -0.14074 },
     name: "Southgate",
-    radius_in_miles: 1.996
+    radius_in_miles: {
+        2020: 1.996
+    }
   },
 };
 
 function initMap(): void {
+  const year = 2020;
+
   const map = new google.maps.Map(
     document.getElementById("map") as HTMLElement,
     {
@@ -58,7 +76,7 @@ function initMap(): void {
       fillOpacity: 0.35,
       center: schools[school].center,
       // Convert miles to metres.
-      radius: schools[school].radius_in_miles * 1609,
+      radius: schools[school].radius_in_miles[year] * 1609,
     });
     const schoolMarker = new google.maps.Marker({
       map,
