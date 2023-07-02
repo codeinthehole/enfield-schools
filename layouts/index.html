@@ -16,7 +16,7 @@
         {{ $built := resources.Get "typescript/index.tsx" | js.Build $opts | resources.Minify }}
         <script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
 
-        <title>Enfield schools</title>
+        <title>Enfield schools — a project by David Winterbottom</title>
     </head>
 
     <body>

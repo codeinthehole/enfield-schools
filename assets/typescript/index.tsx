@@ -1,6 +1,8 @@
 interface RadiusHistory {
     2020: float;
     2021: float;
+    2022: float;
+    2023: float;
 }
 
 interface School {
@@ -16,7 +18,9 @@ const schools: Record<string, School> = {
     radius_in_miles: {
         2020: 1.145,
         // Suspicious as same as 2020
-        2021: 1.145
+        2021: 1.145,
+        2022: 1.255,
+        2023: 1.844,
     }
   },
   kingsmead: {
@@ -25,7 +29,9 @@ const schools: Record<string, School> = {
     radius_in_miles: {
         2020: 0.916,
         // Suspicious as same as 2020
-        2021: 0.916
+        2021: 0.916,
+        2022: 0.873,
+        2023: 0.889,
     }
   },
   winchmore: {
@@ -33,7 +39,9 @@ const schools: Record<string, School> = {
     name: "Winchmore",
     radius_in_miles: {
         2020: 0.836,
-        2021: 1.001
+        2021: 1.001,
+        2022: 0.987,
+        2023: 0.751,
     }
   },
   highlands: {
@@ -41,16 +49,21 @@ const schools: Record<string, School> = {
     name: "Highlands",
     radius_in_miles: {
         2020: 0.843,
-        2021: 0.966
+        2021: 0.966,
+        2022: 0.904,
+        2023: 0.851,
     }
   },
   ashmole: {
     center: { lat: 51.63269, lng: -0.13618 },
     name: "Ashmole",
     radius_in_miles: {
-        2020: 0.4,
-        // Don't know about 2021
-        2021: 0.4 
+        // Taken from Barnet site. E.g.
+        // https://www.barnet.gov.uk/sites/default/files/Allocation%20Table%202023.pdf
+        2020: 0.598,
+        2021: 0.555, 
+        2022: 0.578, 
+        2023: 0.517, 
     }
   },
   southgate: {
@@ -58,13 +71,15 @@ const schools: Record<string, School> = {
     name: "Southgate",
     radius_in_miles: {
         2020: 1.996,
-        2021: 2.647
+        2021: 2.647,
+        2022: 2.868,
+        2023: 2.459,
     }
   },
 };
 
 function initMap(): void {
-  const year = 2021;
+  const year = 2023;
 
   const map = new google.maps.Map(
     document.getElementById("map") as HTMLElement,

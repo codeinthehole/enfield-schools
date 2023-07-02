@@ -14,6 +14,15 @@ production URL is: https://codeinthehole.com/enfield-schools/
 
 Ensure Hugo is installed.
 
+### Data
+
+"Furthest distance offered" numbers are taken from:
+
+- "Transfer to secondary school and allocations" documents, published on the
+  [Enfield Council website](https://www.enfield.gov.uk/services/children-and-education/school-admissions-and-applications)
+- "How places were allocated at Barnet Secondary Schools" documents, published
+  on the Barnet Council website.
+
 ### Deploying
 
 Compile site and push:
