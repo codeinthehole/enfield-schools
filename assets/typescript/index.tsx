@@ -110,15 +110,6 @@ function initMap(): void {
       label: schools[school].name,
     });
   }
-
-  // A marker for where we live
-  new google.maps.Marker({
-      map,
-      position: { lat: 51.6365, lng: -0.06955 },
-      icon: {
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-      }
-  });
 }
 
 console.log(initMap);
