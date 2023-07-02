@@ -11,3 +11,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Navigation bar */
+#nav {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    z-index: 99;
+    background-color: white;
+    padding: 10px;
+}

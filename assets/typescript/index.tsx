@@ -78,19 +78,8 @@ const schools: Record<string, School> = {
   },
 };
 
-function initMap(): void {
-  const year = 2023;
-
-  const map = new google.maps.Map(
-    document.getElementById("map") as HTMLElement,
-    {
-      zoom: 13,
-      // Bush Hill Park - via https://www.freemaptools.com/convert-uk-postcode-to-lat-lng.htm
-      center: { lat: 51.6365, lng: -0.06955 },
-      mapTypeId: "terrain"
-    }
-  );
-
+function showYear(map: google.maps.Map, year: int): google.map.Circle[] {
+  const circles: google.maps.Circle[] = []
   for (const school in schools) {
     const schoolCircle = new google.maps.Circle({
       map,
@@ -103,6 +92,41 @@ function initMap(): void {
       // Convert miles to metres.
       radius: schools[school].radius_in_miles[year] * 1609,
     });
+    circles.push(schoolCircle)
+  }
+  return circles
+}
+
+function updateMap(map: google.maps.Map, event: Event): void {
+    event.preventDefault();
+
+    // Remove all existing Circle markers
+    removeCircles(window.circles)
+
+    // Extract year from anchor text and update map.
+    const year = parseInt(event.target.textContent)
+    window.circles = showYear(map, year)
+}
+
+function removeCircles(circles: google.maps.Circle[]): void {
+    circles.forEach((circle) => circle.setMap(null));
+}
+
+function initMap(): void {
+
+  // Create map object.
+  const map = new google.maps.Map(
+    document.getElementById("map") as HTMLElement,
+    {
+      zoom: 13,
+      // Bush Hill Park - via https://www.freemaptools.com/convert-uk-postcode-to-lat-lng.htm
+      center: { lat: 51.6365, lng: -0.06955 },
+      mapTypeId: "terrain"
+    }
+  );
+
+  // Show schools.
+  for (const school in schools) {
     const schoolMarker = new google.maps.Marker({
       map,
       position: schools[school].center,
@@ -110,7 +134,16 @@ function initMap(): void {
       label: schools[school].name,
     });
   }
+
+  // Use a global array to keep track of Circle refs.
+  window.circles = [];
+
+  // Bind functions to buttons.
+  const links = document.getElementsByClassName("year");
+  Array.from(links).forEach(link => {
+    link.addEventListener('click', updateMap.bind(null, map));
+  });
+
 }
 
-console.log(initMap);
-
+window.initMap = initMap;
