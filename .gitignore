@@ -1,2 +1,5 @@
 # Hugo lock file
 .hugo_build.lock
+
+# Hugo temp files
+resources/_gen/
